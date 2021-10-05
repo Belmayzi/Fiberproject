@@ -1,0 +1,324 @@
+@import "_variables.scss";
+@import url("https://fonts.googleapis.com/css?family=Inter&display=swap");
+
+@mixin flexcenter($direction) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+}
+
+@mixin flexbetween($direction) {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: $direction;
+}
+
+@mixin mainbutton($height, $width) {
+  width: $width;
+  height: $height;
+  border: none;
+  border-radius: 10px;
+  background-color: $primary-color;
+  color: white;
+  font-weight: 500;
+}
+
+@mixin aligncontainers {
+  padding-right: 27px;
+  padding-left: 27px;
+}
+body {
+  font-family: "Inter";
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#body-container {
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+}
+
+// navigation style
+
+#flex-list {
+  @include flexbetween(row);
+  @include aligncontainers();
+  justify-content: space-between;
+  margin-top: 16px;
+
+  #list-elements {
+    display: none;
+  }
+  #nav-buttons {
+    display: none;
+  }
+
+  #Fiber {
+    font-weight: 600;
+  }
+}
+
+// first page style
+#slicknav-container{
+  display: none;
+}
+#slicknav{
+  @include flexcenter(column);
+  background-color: rgb(207, 196, 196);
+  position:absolute;
+  top:7%;
+  bottom: 0;
+  height: 220px;
+  width: 300px;
+  opacity:0.9;
+  border-radius: 10px;
+  
+  #slicknav-items{
+    padding-left: unset;
+    font-size:18px;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    li {
+      margin-top:20px;
+      font-size: 22px;
+      padding: 5px;
+
+      &:hover{
+        background-color:rgb(240, 228, 228); ;
+      }
+    }
+  }
+}
+
+#first-page-container {
+  @include flexcenter(column);
+  @include aligncontainers();
+
+  background-color: $backgroud-color1;
+  #text1 {
+    width: 80%;
+    font-size: 29px;
+    margin: unset;
+    margin-top: 10px;
+  }
+  #text2 {
+    font-weight: 400;
+    color: $text-color;
+  }
+
+  #buttons1 {
+    @include flexcenter(column);
+
+    button {
+      @include mainbutton(55px, 100%);
+      font-size: 20px;
+    }
+    a {
+      color: $primary-color;
+      font-size: 18px;
+      font-weight: bold;
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+  }
+
+  #spans {
+    @include flexcenter(column);
+    align-items: flex-start;
+    align-content: center;
+    height: fit-content;
+    gap: 10px;
+    span {
+      font-size: 20px;
+      color: $text-color;
+      &::before {
+        content: url("assets/Checkmark.svg");
+        padding-right: 5px;
+      }
+    }
+  }
+  
+}
+
+// second page style
+
+#seconde-page-container {
+  @include flexcenter(column);
+  @include aligncontainers();
+
+  padding-top: 60px;
+
+  #headers {
+    h3 {
+      font-weight: bolder;
+      color: $secondary-color;
+      font-size: 14px;
+    }
+    h2 {
+      width: 80%;
+      font-size: 29px;
+      margin: unset;
+      margin-top: 10px;
+    }
+  }
+
+  #content2 {
+    margin-top: 25px;
+    div {
+      padding-top: 20px;
+
+      #head {
+        font-size: 16px;
+        font-weight: 800 !important;
+      }
+
+      #cont {
+        font-weight: 400;
+        color: $text-color;
+      }
+    }
+  }
+}
+
+// third page style
+
+#third-page-container {
+  @include flexcenter(column);
+  @include aligncontainers();
+  margin-top: 30px;
+  #content {
+    @include aligncontainers();
+    @include flexcenter(column);
+    padding-top: 30px;
+    background-color: $primary-color;
+    border-radius: 10px;
+    #header {
+      color: white;
+      font-size: 28px;
+      margin: unset;
+      margin-top: 10px;
+    }
+    #text {
+      font-weight: 400;
+      color: #d4c6f7;
+      font-size: 17px;
+    }
+    button {
+      @include mainbutton(55px, 100%);
+      color: $secondary-color;
+      background-color: white;
+      font-size: 18px;
+      font-weight: bolder;
+    }
+  }
+  #image {
+    overflow: hidden;
+    margin-top: 30px;
+    height: 350px;
+    max-width: 290px;
+    border-radius: 10px;
+    img {
+      height: 315px;
+      width: 315px;
+      transform: scale(1.5);
+    }
+  }
+}
+
+// fourth page style
+
+#fourth-page-container {
+  @include flexcenter(column);
+  @include aligncontainers();
+  padding-top: 40px;
+
+  #profiles {
+    @include aligncontainers();
+    border: #ececec 2px solid;
+    margin-top: 35px;
+    border-radius: 10px;
+    padding-top: 20px;
+    #name {
+      display: flex;
+
+      #inside-name {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: 15px;
+        img {
+          height: 45px;
+          width: 45px;
+        }
+        h4 {
+          font-weight: 800;
+          color: $secondary-color;
+          position: relative;
+          display: inline;
+          margin: unset;
+        }
+        h5 {
+          margin: unset;
+          font-size: 15px;
+          font-weight: 200;
+        }
+      }
+    }
+
+    button {
+      @include mainbutton(55px, 100%);
+      margin-bottom: 20px;
+      background-color: White;
+      color: $secondary-color;
+      border: #ececec 2px solid;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 800;
+    }
+  }
+}
+
+// footer styling
+footer{
+  background-color: $backgroud-color1;
+  margin-top: 60px;
+}
+#footer-container{
+  @include flexcenter(column);
+  @include aligncontainers();
+  padding-top: 40px;
+  padding-bottom: 40px;
+  
+  p{
+    width: 95%;
+    color: $text-color;
+  }
+  #footer-content{
+    @include flexcenter(column);
+    align-items: flex-start;
+    width: 100%;
+
+    h3{
+      margin-bottom: unset;
+    }
+    #list-items{
+      @include flexcenter(column);
+      align-items: flex-start;
+      padding:unset;
+      span:not(:first-child){
+        padding-top:10px;
+        
+      }
+      span{
+        color:$text-color
+      }
+
+    }
+  }
+
+}
